@@ -209,7 +209,7 @@ function Index() {
                 <p className={eyebrow}>Get in touch</p>
                 <Mail className="text-primary" />
               </div>
-              <a href={`mailto:${EMAIL}`} className={`mt-8 block break-all rounded-sm font-serif text-3xl hover:text-primary md:text-5xl ${focus}`}>{EMAIL}</a>
+              <a href={`mailto:${EMAIL}`} className={`mt-8 block break-all rounded-sm font-serif text-2xl hover:text-primary sm:text-3xl md:text-5xl ${focus}`}>{EMAIL}</a>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">The simplest way to reach me. Send a note and tell me a little about what you have in mind.</p>
               <a href={`mailto:${EMAIL}`} className={`mt-10 ${btnPrimary}`}>Say hello by email <ArrowRight size={18} /></a>
             </div>
