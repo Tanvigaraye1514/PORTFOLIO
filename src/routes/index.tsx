@@ -3,6 +3,11 @@ import { useEffect, useState, type ReactNode } from "react";
 import { ArrowRight, ArrowUpRight, ArrowLeftRight, Mail, Menu, X } from "lucide-react";
 import photo from "@/assets/tanvi.jpg.asset.json";
 import roomies from "@/assets/roomies.jpg.asset.json";
+import flagCeremony from "@/assets/flag-ceremony.jpg.asset.json";
+import publicSpeaking from "@/assets/public-speaking.jpg.asset.json";
+import trophies from "@/assets/trophies.jpg.asset.json";
+import sihCertificate from "@/assets/sih-certificate.jpg.asset.json";
+import certificateCollection from "@/assets/certificate-collection.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -192,11 +197,53 @@ function Index() {
         </Section>
 
         {/* ACHIEVEMENTS & INTERESTS */}
-        <Section id="achievements" num="04" title="Along the way." sub="The things I'm drawn to outside of coursework.">
-          <p className={eyebrow}>Interests</p>
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
-            {["Programming", "Web development", "UI/UX design"].map((t) => (
-              <div key={t} className="rounded-lg bg-card p-8 font-serif text-2xl">{t}</div>
+        <Section id="achievements" num="04" title="Milestones & everything in between." sub="The moments I'm proud of, and the interests that make life my own.">
+          <p className={eyebrow}>My achievements</p>
+          <h3 className="mt-6 font-serif text-4xl">Progress worth remembering.</h3>
+          <p className="mt-4 text-muted-foreground">Big or small, this is a place for milestones that mean something to me.</p>
+
+          <div className="mt-12 border-t border-border">
+            {[
+              {
+                title: "Head Girl & Leadership",
+                desc: "I served as Head Girl of my school, developing my leadership skills.",
+                photos: [
+                  { src: flagCeremony.url, alt: "Flag-bearing students on the school sports ground", caption: "School ceremony — flag-bearing students on the sports ground", center: true },
+                ],
+              },
+              {
+                title: "MUNs, TED Talks & Anchoring",
+                desc: "My public-speaking experience includes MUNs, TED talks, and anchoring.",
+                photos: [
+                  { src: publicSpeaking.url, alt: "Tanvi speaking on stage with a microphone", caption: "Public speaking — on stage", center: false },
+                ],
+              },
+              {
+                title: "Sports, Dance & Achievements",
+                desc: "I took part in sports and dance, celebrating achievements along the way.",
+                photos: [
+                  { src: trophies.url, alt: "Trophies and awards on a table", caption: "Trophies and awards including Resofest recognition", center: true },
+                ],
+              },
+              {
+                title: "Hackathons, Workshops & School Events",
+                desc: "I participated in hackathons, workshops, and many events at school.",
+                photos: [
+                  { src: sihCertificate.url, alt: "Smart India Hackathon Junior certificate of merit", caption: "Smart India Hackathon Junior — Smart Irrigation System certificate", center: true },
+                  { src: certificateCollection.url, alt: "Collection of school certificates and awards", caption: "Certificate collection — various school recognitions and awards", center: true },
+                ],
+              },
+            ].map((item) => (
+              <div key={item.title} className="border-b border-border py-12">
+                <h4 className="font-serif text-2xl">{item.title}</h4>
+                <p className="mt-2 text-muted-foreground">{item.desc}</p>
+                {item.photos.map((p) => (
+                  <figure key={p.src} className={`mt-8 ${p.center ? "mx-auto" : ""} w-full max-w-md`}>
+                    <img src={p.src} alt={p.alt} loading="lazy" className="w-full rounded-sm object-cover" />
+                    <figcaption className="mt-3 text-sm text-muted-foreground">{p.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
             ))}
           </div>
         </Section>
